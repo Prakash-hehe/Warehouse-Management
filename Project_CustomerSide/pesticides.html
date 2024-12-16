@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- <link rel="stylesheet" href="orders.css"> Link to your CSS file -->
+  <link href="orders.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+
+  <style>
+p {
+  transition: opacity 0.3s ease;
+}
+
+  </style>
+</head>
+<body>
+  <aside class="side-navigation">
+    <!-- <div class="profile-pic">
+      <img src="my pic.jpg" alt="Profile Picture">
+    </div> -->
+    <ul class="icons">
+      <li><a href="profile.php"><i class="fas fa-user-circle"></i></i></a></li> <!-- Replace the class with the appropriate profile icon class -->
+      <li><a href="settings.php"><i class="fas fa-cog"></i></a></li> <!-- Replace the class with the appropriate settings icon class -->
+      <li class="beat"><a href="cartpage.php"><i class="fas fa-cart-arrow-down"></i><span class="cart-count">0</span></a></li> <!-- Replace the class with the appropriate settings icon class -->
+      <li><a href="login.html" onclick="session(1)"><i class="fas fa-sign-out-alt"></i></a></li>
+
+    </ul>
+  </aside>
+  
+  
+      <div class="top-navigation">
+        <ul class="categories">
+          <li><a href="vegetables.html"><i class="fas fa-carrot" style="color: #FFA500;"></i> Vegetables</a></li> <!-- Replace the class with the appropriate vegetable icon class -->
+          <li><a href="fruits.html"><i class="fas fa-apple-alt" style="color: #ee3a09;"></i> Fruits</a></li> <!-- Replace the class with the appropriate fruit icon class -->
+          <li><a href="cereals.html"><i class="fas fa-utensils" style="color:#C0C0C0"></i> Cereals</a></li> <!-- Replace the class with the appropriate cereal icon class -->
+          <li  class="active" style="border: 2px solid #008080;"><a href="pesticides.html"><i class="fas fa-bug"></i> Pesticides</a></li> <!-- Replace the class with the appropriate pesticide icon class -->
+          <li><a href="fertilizers.html"><i class="fas fa-tractor" style="color: #367C2B;"></i> Fertilizers</a></li> <!-- Replace the class with the appropriate pesticide icon class -->
+        </ul>
+      </div>
+    <div class="content">
+    <div class="product-listing">
+      <h2>Product Listing</h2>
+
+      <!-- Delivery Options -->
+      <div class="delivery_tables">
+        <table>
+          <tr>
+            <td>
+              <p>Delivery Options</p>
+            </td>
+            <td>
+              <label>
+                <input type="radio" name="delivery-option" value="delivery" class="radio" checked>
+                Delivery
+              </label>
+              <label>
+                <input type="radio" name="delivery-option" value="takeout" class="radio">
+                Takeout
+              </label>
+            </td>
+            <td >
+              <textarea id="delivery-textarea" rows="6" readonly>Delivery details</textarea>
+            </td>
+          </tr>
+        </table>
+      </div>
+      
+      <!-- Add your product listing here -->
+      <table>
+        <tr>
+          <td><img src="Pesticides/Acephate.jpeg"><h3 class="prod_name">Acephate</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;490</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>A systemic insecticide effective against a range of pests, commonly used in agriculture and horticulture.
+            <br><br>
+            <input type="number" id="pro_52" class="quantity-input" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(52)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(52)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(52)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Pesticides/Carbaryl.jpeg"><h3 class="prod_name">Carbaryl</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;3800</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td> Broad-spectrum insecticide used for pest control in gardens, crops, and homes, with moderate toxicity.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_53" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(53)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(53)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(53)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Pesticides/Chlorpyrifos.jpeg"><h3 class="prod_name">Chlorpyrifos</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;330</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Insecticide used to control pests in agriculture, but its use is controversial due to potential health risks.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_54" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(54)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(54)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(54)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Pesticides/Cypermethrin.jpeg"><h3 class="prod_name">CCypermethrin</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;490</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td> A potent synthetic pyrethroid insecticide used for its broad-spectrum effectiveness in controlling pests in agriculture and households.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_55" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(55)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(55)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(55)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Pesticides/Endosulfan.jpeg"><h3 class="prod_name">Endosulfan</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;970</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td> A highly toxic insecticide and acaricide known for its persistent nature and adverse effects on humans and the environment.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_56" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(56)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(56)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(56)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Pesticides/Glyphosate.jpeg"><h3 class="prod_name">Glyphosate</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;250</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Widely used herbicide effective against a broad range of weeds and plants.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_57" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(57)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(57)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(57)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Pesticides/Imidacloprid.jpeg"><h3 class="prod_name">Imidacloprid</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;440</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Neonicotinoid insecticide used on various crops, but implicated in bee population declines and environmental damage.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_58" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(58)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(58)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(58)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Pesticides/Malathion.jpeg"><h3 class="prod_name">Malathion</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;390</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Insecticide used to control mosquitoes, lice, and agricultural pests, but can be harmful to humans and the environment.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_59" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(59)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(59)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(59)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Pesticides/Monocrotophos.jpeg"><h3 class="prod_name">Monocrotophos</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;450</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>An organophosphate insecticide with broad-spectrum activity, used to control pests but associated with significant health and environmental risks.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_60" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(60)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(60)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(60)">+</button>
+          </td>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <script>
+    function session(a) {
+  var formData = new FormData();
+  formData.append('sessionId', a);
+
+  // Send a POST request to the PHP script
+  fetch('logout.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(function(response) {
+      // Check if the response was successful
+      if (response.ok) {
+        return response.text(); // Return the response text
+      } else {
+        throw new Error('Request failed.'); // Throw an error
+      }
+    })
+    .then(function(responseData) {
+      // Do something with the response data
+      console.log(responseData);
+      // Redirect to the login page
+      window.location.href = 'login.html';
+    })
+    .catch(function(error) {
+      // Handle any errors
+      console.error('Error:', error);
+    });
+}
+    //To calculate delivery date
+    var currentday= new Date();
+    var day=currentday.getDay();
+    // Array of weekday names
+    var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var deliveryday = weekdays[(day+2)%7];
+
+    //Funtion to add delivery details
+
+    var deliveryParagraphs = document.getElementsByClassName("Delivery_delivery");
+    var takeoutParagraphs = document.getElementsByClassName("Delivery_takeout");
+
+    // Set the text for delivery paragraphs
+    for (var i = 0; i < deliveryParagraphs.length; i++) {
+      deliveryParagraphs[i].innerText = deliveryday + " 9:00am to 8:00pm";
+    }
+
+    // Set the text for takeout paragraphs
+    for (var j = 0; j < takeoutParagraphs.length; j++) {
+      takeoutParagraphs[j].innerText = "Please collect your product at the warehouse";
+    }
+
+
+    // Minus function
+    function minus(a){
+      var x="pro_"+a;
+      const quantity=document.getElementById(x);
+      var y=parseInt(quantity.value);
+      if(y>1){
+        quantity.value=parseInt(quantity.value)-1;
+      }
+    }
+    // Add function
+    function plus(a){
+      var x="pro_"+a;
+      const quantity=document.getElementById(x);
+      quantity.value=parseInt(quantity.value)+1;
+    }
+    //Cart count increase
+    function cartcount(a){
+      var x="pro_"+a;
+      const quantity=document.getElementById(x);
+      var y=parseInt(quantity.value);
+
+
+
+
+// Create a FormData object and append the data
+var formData = new FormData();
+  formData.append('productId', x);
+  formData.append('quantity', y);
+
+  // Send a POST request to the PHP script
+  fetch('submit.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(function(response) {
+      // Check if the response was successful
+      if (response.ok) {
+        return response.text(); // Return the response text
+      } else {
+        throw new Error('Request failed.'); // Throw an error
+      }
+    })
+    .then(function(responseData) {
+      // Do something with the response data
+      console.log(responseData);
+    })
+    .catch(function(error) {
+      // Handle any errors
+      console.error('Error:', error);
+    });
+
+
+      var cartCountElement = document.querySelector('.cart-count');
+      var currentCount = parseInt(cartCountElement.textContent);
+      var newCount = currentCount + y;
+      cartCountElement.textContent = newCount;
+      quantity.value=1;
+    }
+
+    //textarea delivery
+    const deliveryOptionRadios = document.querySelectorAll('input[name="delivery-option"]');
+    const deliveryTextarea = document.getElementById('delivery-textarea');
+
+    // Function to handle delivery option change
+    function handleDeliveryOptionChange() {
+      if (this.value === 'delivery') {
+        deliveryTextarea.value = 'Enter your delivery address and contact details';
+
+        var deliveryParagraphs = document.getElementsByClassName("Delivery_delivery");
+        var takeoutParagraphs = document.getElementsByClassName("Delivery_takeout");
+
+        // Highlight the takeout paragraphs and fade the delivery paragraphs
+        for (var i = 0; i < deliveryParagraphs.length; i++) {
+          deliveryParagraphs[i].style.opacity = 1;
+        }
+
+        for (var j = 0; j < takeoutParagraphs.length; j++) {
+          takeoutParagraphs[j].style.opacity = 0.5;
+        }
+
+
+      } else if (this.value === 'takeout') {
+        const takeoutText = `Select a convenient pickup time and visit our store location.
+        We are available from:
+        - Monday to Friday: 9:00am to 8:00pm
+        - Saturday: 10:00am to 1:00pm
+        - We are closed on public holidays`;
+        
+        deliveryTextarea.value = takeoutText;
+
+        // var deliveryParagraph = document.getElementById("Delivery_delivery");
+        // var takeoutParagraph = document.getElementById("Delivery_takeout");
+        // // Highlight the takeout paragraph and fade the delivery paragraph
+        // deliveryParagraph.style.opacity = 0.5;
+        // takeoutParagraph.style.opacity = 1;
+        var deliveryParagraphs = document.getElementsByClassName("Delivery_delivery");
+        var takeoutParagraphs = document.getElementsByClassName("Delivery_takeout");
+
+        // Highlight the takeout paragraphs and fade the delivery paragraphs
+        for (var i = 0; i < deliveryParagraphs.length; i++) {
+          deliveryParagraphs[i].style.opacity = 0.5;
+        }
+
+        for (var j = 0; j < takeoutParagraphs.length; j++) {
+          takeoutParagraphs[j].style.opacity = 1;
+        }
+
+      }
+    }
+
+
+    // Add event listener for each delivery option radio button
+    deliveryOptionRadios.forEach(radio => {
+      radio.addEventListener('change', handleDeliveryOptionChange);
+    });
+
+    // Trigger initial delivery option change
+    handleDeliveryOptionChange.call(deliveryOptionRadios[0]);
+
+  </script> <!-- Link to your JavaScript file -->
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- <link rel="stylesheet" href="orders.css"> Link to your CSS file -->
+  <link href="orders.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+
+  <style>
+p {
+  transition: opacity 0.3s ease;
+}
+
+  </style>
+</head>
+<body>
+  <aside class="side-navigation">
+    <!-- <div class="profile-pic">
+      <img src="my pic.jpg" alt="Profile Picture">
+    </div> -->
+    <ul class="icons">
+      <li><a href="profile.php"><i class="fas fa-user-circle"></i></i></a></li> <!-- Replace the class with the appropriate profile icon class -->
+      <li><a href="settings.php"><i class="fas fa-cog"></i></a></li> <!-- Replace the class with the appropriate settings icon class -->
+      <li class="beat"><a href="cartpage.php"><i class="fas fa-cart-arrow-down"></i><span class="cart-count">0</span></a></li> <!-- Replace the class with the appropriate settings icon class -->
+      <li><a href="login.html" onclick="session(1)"><i class="fas fa-sign-out-alt"></i></a></li>
+
+    </ul>
+  </aside>
+  
+  
+      <div class="top-navigation">
+        <ul class="categories">
+          <li><a href="vegetables.html"><i class="fas fa-carrot" style="color: #FFA500;"></i> Vegetables</a></li> <!-- Replace the class with the appropriate vegetable icon class -->
+          <li><a href="fruits.html"><i class="fas fa-apple-alt" style="color: #ee3a09;"></i> Fruits</a></li> <!-- Replace the class with the appropriate fruit icon class -->
+          <li  class="active" style="border: 2px solid #008080;"><a href="cereals.html"><i class="fas fa-utensils" style="color:#C0C0C0"></i> Cereals</a></li> <!-- Replace the class with the appropriate cereal icon class -->
+          <li><a href="pesticides.html"><i class="fas fa-bug"></i> Pesticides</a></li> <!-- Replace the class with the appropriate pesticide icon class -->
+          <li><a href="fertilizers.html"><i class="fas fa-tractor" style="color: #367C2B;"></i> Fertilizers</a></li> <!-- Replace the class with the appropriate pesticide icon class -->
+        </ul>
+      </div>
+    <div class="content">
+    <div class="product-listing">
+      <h2>Product Listing</h2>
+
+      <!-- Delivery Options -->
+      <div class="delivery_tables">
+        <table>
+          <tr>
+            <td>
+              <p>Delivery Options</p>
+            </td>
+            <td>
+              <label>
+                <input type="radio" name="delivery-option" value="delivery" class="radio" checked>
+                Delivery
+              </label>
+              <label>
+                <input type="radio" name="delivery-option" value="takeout" class="radio">
+                Takeout
+              </label>
+            </td>
+            <td >
+              <textarea id="delivery-textarea" rows="6" readonly>Delivery details</textarea>
+            </td>
+          </tr>
+        </table>
+      </div>
+      
+      <!-- Add your product listing here -->
+      <table>
+        <tr>
+          <td><img src="Cereals/Bajra2.jpg"><h3 class="prod_name">Bajra</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;69</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Bajra, a coarse grain with a nutty flavor, is a staple in Indian cuisine for roti (flatbread) and porridge.
+            <br><br>
+            <input type="number" id="pro_42" class="quantity-input" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(42)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(42)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(42)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Cereals/Barley.jpeg"><h3 class="prod_name">Barley</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;50</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Nutty and chewy, barley is a versatile grain used in soups, stews, bread, and beer production.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_43" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(43)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(43)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(43)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Cereals/Black Gram.jpeg"><h3 class="prod_name">Black Gram</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;115</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Black gram, also known as urad dal or black lentil, is a small legume with a distinct black color and a rich, earthy flavor.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_44" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(44)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(44)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(44)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Cereals/Chickpeas.jpeg"><h3 class="prod_name">Chick peas</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;89</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Chickpeas, also referred to as garbanzo beans, are small legumes known for their creamy texture, nutty flavor, and versatility in various cuisines.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_45" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(45)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(45)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(45)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Cereals/Green Gram.jpeg"><h3 class="prod_name">Green Gram</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;77</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Green gram, or mung bean, delights with its petite, verdant form, exuding a refreshing aura of vitality and natural vibrancy.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_46" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(46)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(46)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(46)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Cereals/Jowar.jpeg"><h3 class="prod_name">Jowar</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;48</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Jowar, or sorghum, exudes rustic beauty with its slender stalks and clusters of grains, embodying the essence of resilience and agricultural grace.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_47" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(47)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(47)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(47)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Cereals/Maize.jpeg"><h3 class="prod_name">Maize</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;24</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Maize, with its vibrant golden kernels standing tall on sturdy stalks, embodies the essence of abundance and agricultural splendor.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_48" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(48)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(48)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(48)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Cereals/Ragi.jpeg"><h3 class="prod_name">Ragi</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;73</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td> Light and nutritious, bottle gourd is perfect for curries, dal, and refreshing summer drinks.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_49" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(49)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(49)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(49)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Cereals/Rice2.jpg"><h3 class="prod_name">Rice</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;52</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Rice, a versatile staple grain, embodies simplicity and sustenance with its delicate grains and nourishing essence.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_50" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(50)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(50)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(50)">+</button>
+          </td>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Cereals/Wheat.jpeg"><h3 class="prod_name">Wheat</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;46</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Golden wheat fields sway gracefully in the sunlit breeze, painting a scene of rustic elegance and bountiful abundance.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_51" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(51)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(51)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(51)">+</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <script>
+    function session(a) {
+  var formData = new FormData();
+  formData.append('sessionId', a);
+
+  // Send a POST request to the PHP script
+  fetch('logout.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(function(response) {
+      // Check if the response was successful
+      if (response.ok) {
+        return response.text(); // Return the response text
+      } else {
+        throw new Error('Request failed.'); // Throw an error
+      }
+    })
+    .then(function(responseData) {
+      // Do something with the response data
+      console.log(responseData);
+      // Redirect to the login page
+      window.location.href = 'login.html';
+    })
+    .catch(function(error) {
+      // Handle any errors
+      console.error('Error:', error);
+    });
+}
+    //To calculate delivery date
+    var currentday= new Date();
+    var day=currentday.getDay();
+    // Array of weekday names
+    var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var deliveryday = weekdays[(day+2)%7];
+
+    //Funtion to add delivery details
+
+    var deliveryParagraphs = document.getElementsByClassName("Delivery_delivery");
+    var takeoutParagraphs = document.getElementsByClassName("Delivery_takeout");
+
+    // Set the text for delivery paragraphs
+    for (var i = 0; i < deliveryParagraphs.length; i++) {
+      deliveryParagraphs[i].innerText = deliveryday + " 9:00am to 8:00pm";
+    }
+
+    // Set the text for takeout paragraphs
+    for (var j = 0; j < takeoutParagraphs.length; j++) {
+      takeoutParagraphs[j].innerText = "Please collect your product at the warehouse";
+    }
+
+
+    // Minus function
+    function minus(a){
+      var x="pro_"+a;
+      const quantity=document.getElementById(x);
+      var y=parseInt(quantity.value);
+      if(y>1){
+        quantity.value=parseInt(quantity.value)-1;
+      }
+    }
+    // Add function
+    function plus(a){
+      var x="pro_"+a;
+      const quantity=document.getElementById(x);
+      quantity.value=parseInt(quantity.value)+1;
+    }
+    //Cart count increase
+    function cartcount(a){
+      var x="pro_"+a;
+      const quantity=document.getElementById(x);
+      var y=parseInt(quantity.value);
+
+
+
+
+// Create a FormData object and append the data
+var formData = new FormData();
+  formData.append('productId', x);
+  formData.append('quantity', y);
+
+  // Send a POST request to the PHP script
+  fetch('submit.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(function(response) {
+      // Check if the response was successful
+      if (response.ok) {
+        return response.text(); // Return the response text
+      } else {
+        throw new Error('Request failed.'); // Throw an error
+      }
+    })
+    .then(function(responseData) {
+      // Do something with the response data
+      console.log(responseData);
+    })
+    .catch(function(error) {
+      // Handle any errors
+      console.error('Error:', error);
+    });
+
+
+      var cartCountElement = document.querySelector('.cart-count');
+      var currentCount = parseInt(cartCountElement.textContent);
+      var newCount = currentCount + y;
+      cartCountElement.textContent = newCount;
+      quantity.value=1;
+    }
+
+    //textarea delivery
+    const deliveryOptionRadios = document.querySelectorAll('input[name="delivery-option"]');
+    const deliveryTextarea = document.getElementById('delivery-textarea');
+
+    // Function to handle delivery option change
+    function handleDeliveryOptionChange() {
+      if (this.value === 'delivery') {
+        deliveryTextarea.value = 'Enter your delivery address and contact details';
+
+        var deliveryParagraphs = document.getElementsByClassName("Delivery_delivery");
+        var takeoutParagraphs = document.getElementsByClassName("Delivery_takeout");
+
+        // Highlight the takeout paragraphs and fade the delivery paragraphs
+        for (var i = 0; i < deliveryParagraphs.length; i++) {
+          deliveryParagraphs[i].style.opacity = 1;
+        }
+
+        for (var j = 0; j < takeoutParagraphs.length; j++) {
+          takeoutParagraphs[j].style.opacity = 0.5;
+        }
+
+
+      } else if (this.value === 'takeout') {
+        const takeoutText = `Select a convenient pickup time and visit our store location.
+        We are available from:
+        - Monday to Friday: 9:00am to 8:00pm
+        - Saturday: 10:00am to 1:00pm
+        - We are closed on public holidays`;
+        
+        deliveryTextarea.value = takeoutText;
+
+        // var deliveryParagraph = document.getElementById("Delivery_delivery");
+        // var takeoutParagraph = document.getElementById("Delivery_takeout");
+        // // Highlight the takeout paragraph and fade the delivery paragraph
+        // deliveryParagraph.style.opacity = 0.5;
+        // takeoutParagraph.style.opacity = 1;
+        var deliveryParagraphs = document.getElementsByClassName("Delivery_delivery");
+        var takeoutParagraphs = document.getElementsByClassName("Delivery_takeout");
+
+        // Highlight the takeout paragraphs and fade the delivery paragraphs
+        for (var i = 0; i < deliveryParagraphs.length; i++) {
+          deliveryParagraphs[i].style.opacity = 0.5;
+        }
+
+        for (var j = 0; j < takeoutParagraphs.length; j++) {
+          takeoutParagraphs[j].style.opacity = 1;
+        }
+
+      }
+    }
+
+
+    // Add event listener for each delivery option radio button
+    deliveryOptionRadios.forEach(radio => {
+      radio.addEventListener('change', handleDeliveryOptionChange);
+    });
+
+    // Trigger initial delivery option change
+    handleDeliveryOptionChange.call(deliveryOptionRadios[0]);
+
+  </script> <!-- Link to your JavaScript file -->
+</body>
+</html>

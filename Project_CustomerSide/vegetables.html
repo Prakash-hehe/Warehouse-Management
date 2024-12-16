@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- <link rel="stylesheet" href="orders.css"> Link to your CSS file -->
+  <link href="orders.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+
+  <style>
+p {
+  transition: opacity 0.3s ease;
+}
+
+  </style>
+</head>
+<body>
+  <aside class="side-navigation">
+    <!-- <div class="profile-pic">
+      <img src="my pic.jpg" alt="Profile Picture">
+    </div> -->
+    <ul class="icons">
+      <li><a href="profile.php"><i class="fas fa-user-circle"></i></i></a></li> <!-- Replace the class with the appropriate profile icon class -->
+      <li><a href="settings.php"><i class="fas fa-cog"></i></a></li> <!-- Replace the class with the appropriate settings icon class -->
+      <li class="beat"><a href="cartpage.php"><i class="fas fa-cart-arrow-down"></i><span class="cart-count">0</span></a></li> <!-- Replace the class with the appropriate settings icon class -->
+      <li><a href="login.html" onclick="session(1)"><i class="fas fa-sign-out-alt"></i></a></li>
+
+    </ul>
+  </aside>
+  
+  
+      <div class="top-navigation">
+        <ul class="categories">
+          <li class="active" style="border: 2px solid #008080;"><a href="vegetables.html"><i class="fas fa-carrot" style="color: #FFA500;"></i> Vegetables</a></li> <!-- Replace the class with the appropriate vegetable icon class -->
+          <li><a href="fruits.html"><i class="fas fa-apple-alt" style="color: #ee3a09;"></i> Fruits</a></li> <!-- Replace the class with the appropriate fruit icon class -->
+          <li><a href="cereals.html"><i class="fas fa-utensils" style="color:#C0C0C0"></i> Cereals</a></li> <!-- Replace the class with the appropriate cereal icon class -->
+          <li><a href="pesticides.html"><i class="fas fa-bug"></i> Pesticides</a></li> <!-- Replace the class with the appropriate pesticide icon class -->
+          <li><a href="fertilizers.html"><i class="fas fa-tractor" style="color: #367C2B;"></i> Fertilizers</a></li> <!-- Replace the class with the appropriate pesticide icon class -->
+        </ul>
+      </div>
+    <div class="content">
+    <div class="product-listing">
+      <h2>Product Listing</h2>
+
+      <!-- Delivery Options -->
+      <div class="delivery_tables">
+        <table>
+          <tr>
+            <td>
+              <p>Delivery Options</p>
+            </td>
+            <td>
+              <label>
+                <input type="radio" name="delivery-option" value="delivery" class="radio" checked>
+                Delivery
+              </label>
+              <label>
+                <input type="radio" name="delivery-option" value="takeout" class="radio">
+                Takeout
+              </label>
+            </td>
+            <td >
+              <textarea id="delivery-textarea" rows="6" readonly>Delivery details</textarea>
+            </td>
+          </tr>
+        </table>
+      </div>
+      
+      <!-- Add your product listing here -->
+      <table>
+        <tr>
+          <td><img src="Vegetables/beetroot.jpg"><h3 class="prod_name">Beet Root</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;40</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Earthy and vibrant, beetroot adds depth to salads, soups, and curries with its rich color and flavor.
+            <br><br>
+            <input type="number" id="pro_1" class="quantity-input" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(1)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(1)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(1)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/bitter_gaurd.jpg"><h3 class="prod_name">Bitter Guard</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;32</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Intensely bitter yet nutritious, bitter gourd is used in stir-fries and stuffed dishes to add unique flavor.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_2" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(2)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(2)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(2)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/bottle_gaurd.jpg"><h3 class="prod_name">Bottle Guard</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;28</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td> Light and nutritious, bottle gourd is perfect for curries, dal, and refreshing summer drinks.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_3" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(3)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(3)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(3)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/brinjal.jpg"><h3 class="prod_name">Brinjal</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;22</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Rich and velvety, brinjal adds a smoky depth to curries, bhartas, and masalas.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_4" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(4)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(4)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(4)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/cabbage.jpg"><h3 class="prod_name">cabbage</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;33</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Crisp and refreshing, cabbage brings freshness to salads, coleslaws, and stir-fries.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_5" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(5)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(5)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(5)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/capsicum_green.jpg"><h3 class="prod_name">Green Capsicum</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;44</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Crisp and slightly bitter bell pepper variety with a green color, commonly used in salads, stir-fries, and stuffed dishes.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_6" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(6)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(6)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(6)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/capsicum_red.jpg"><h3 class="prod_name">Red Capsicum</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;47</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Vibrant and sweet bell pepper variety with a red color, perfect for adding color and crunch to dishes.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_7" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(7)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(7)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(7)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/capsicum_yellow.jpg"><h3 class="prod_name">Yellow Capsicum</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;45</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Bright and mild bell pepper variety with a yellow color, adds a pop of color and sweetness to meals.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_8" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(8)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(8)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(8)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/carrot.jpg"><h3 class="prod_name">Carrot</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;40</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Vibrant and sweet, carrots add color and crunch to salads, stir-fries, and pulao.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_9" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(9)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(9)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(9)">+</button>
+          </td>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/cauliflower.jpg"><h3 class="prod_name">Cauliflower</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;30</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Delicate and versatile, cauliflower adds a mild nutty flavor to curries, stir-fries, and biryanis.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_10" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(10)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(10)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(10)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/chilli.jpg"><h3 class="prod_name">Chilli</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;31</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Fiery and zesty, green chilies bring the perfect spice kick to Indian curries, chutneys, and pickles.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_11" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"onclick="minus(11)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(11)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(11)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/coriander.jpg"><h3 class="prod_name">Coriander</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;10</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Fresh and vibrant, coriander leaves add a refreshing touch as a garnish or in chutneys and marinades.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_12" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"onclick="minus(12)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(12)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(12)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/curry_leaves.jpg"><h3 class="prod_name">Curry Leaves</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;10</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Fragrant herb used in Indian cooking for its distinct flavor and aroma.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_13" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(13)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(13)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(13)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/drumstick.jpg"><h3 class="prod_name">DrumStick</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;20</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Long and fibrous, drumstick adds a distinctive flavor and texture to sambar and South Indian dishes.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_14" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(14)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(14)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(14)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/Fenugreek_leaves.jpg"><h3 class="prod_name">Fenugreek Leaves</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;10</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Aromatic and slightly bitter, fenugreek leaves enhance curries, parathas, and dals.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_15" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(15)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(15)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(15)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/mint.jpg"><h3 class="prod_name">Mint</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;10</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Versatile and comforting, the potato adds a creamy touch to Indian curries and biryanis.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_16" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(16)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(16)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(16)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/okra.jpg"><h3 class="prod_name">Okra</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;40</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Tender and slim, ladyfinger adds a delightful crunch to curries, stews, and sambar.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_17" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(17)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(17)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(17)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/onion.jpg"><h3 class="prod_name">Onions</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;30</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Aromatic and flavor-packed, onions bring depth to Indian dishes, from curries to masalas.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_18" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(18)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(18)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(18)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/potato.jpg"><h3 class="prod_name">Potato</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;35</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Versatile and comforting, the potato adds a creamy touch to Indian curries and biryanis.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_19" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(19)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(19)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(19)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/pumpkin.jpg"><h3 class="prod_name">Pumpkin</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;60</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Sweet and velvety, pumpkin lends a comforting touch to curries, soups, and desserts.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_20" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(20)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(20)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(20)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/radish.jpg"><h3 class="prod_name">Radish</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;37</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Refreshing and peppery, radish brings a zing to salads, raitas, and parathas.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_21" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(21)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(21)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(21)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/ridge_gaurd.jpg"><h3 class="prod_name">Ridge Guard</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;29</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Tender and mild, ridge gourd is delicious in curries, stir-fries, and lentil dishes.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_22" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(22)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(22)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(22)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/spinach.jpg"><h3 class="prod_name">Spinach</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;15</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Nutrient-packed and versatile, spinach is a staple in curries, saag dishes, and lentil soups.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_23" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(23)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(23)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(23)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Vegetables/tomato.jpg"><h3 class="prod_name">Tomato</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;31</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Tangy and juicy, tomatoes are the vibrant base for curries, gravies, and chutneys.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_24" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(24)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(24)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(24)">+</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <script>
+    function session(a) {
+  var formData = new FormData();
+  formData.append('sessionId', a);
+
+  // Send a POST request to the PHP script
+  fetch('logout.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(function(response) {
+      // Check if the response was successful
+      if (response.ok) {
+        return response.text(); // Return the response text
+      } else {
+        throw new Error('Request failed.'); // Throw an error
+      }
+    })
+    .then(function(responseData) {
+      // Do something with the response data
+      console.log(responseData);
+      // Redirect to the login page
+      window.location.href = 'login.html';
+    })
+    .catch(function(error) {
+      // Handle any errors
+      console.error('Error:', error);
+    });
+}
+    //To calculate delivery date
+    var currentday= new Date();
+    var day=currentday.getDay();
+    // Array of weekday names
+    var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var deliveryday = weekdays[(day+2)%7];
+
+    //Funtion to add delivery details
+
+    var deliveryParagraphs = document.getElementsByClassName("Delivery_delivery");
+    var takeoutParagraphs = document.getElementsByClassName("Delivery_takeout");
+
+    // Set the text for delivery paragraphs
+    for (var i = 0; i < deliveryParagraphs.length; i++) {
+      deliveryParagraphs[i].innerText = deliveryday + " 9:00am to 8:00pm";
+    }
+
+    // Set the text for takeout paragraphs
+    for (var j = 0; j < takeoutParagraphs.length; j++) {
+      takeoutParagraphs[j].innerText = "Please collect your product at the warehouse";
+    }
+
+
+    // Minus function
+    function minus(a){
+      var x="pro_"+a;
+      const quantity=document.getElementById(x);
+      var y=parseInt(quantity.value);
+      if(y>1){
+        quantity.value=parseInt(quantity.value)-1;
+      }
+    }
+    // Add function
+    function plus(a){
+      var x="pro_"+a;
+      const quantity=document.getElementById(x);
+      quantity.value=parseInt(quantity.value)+1;
+    }
+    //Cart count increase
+    function cartcount(a){
+      var x="pro_"+a;
+      const quantity=document.getElementById(x);
+      var y=parseInt(quantity.value);
+
+
+
+
+// Create a FormData object and append the data
+var formData = new FormData();
+  formData.append('productId', x);
+  formData.append('quantity', y);
+
+  // Send a POST request to the PHP script
+  fetch('submit.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(function(response) {
+      // Check if the response was successful
+      if (response.ok) {
+        return response.text(); // Return the response text
+      } else {
+        throw new Error('Request failed.'); // Throw an error
+      }
+    })
+    .then(function(responseData) {
+      // Do something with the response data
+      console.log(responseData);
+    })
+    .catch(function(error) {
+      // Handle any errors
+      console.error('Error:', error);
+    });
+
+
+      var cartCountElement = document.querySelector('.cart-count');
+      var currentCount = parseInt(cartCountElement.textContent);
+      var newCount = currentCount + y;
+      cartCountElement.textContent = newCount;
+      quantity.value=1;
+    }
+
+    //textarea delivery
+    const deliveryOptionRadios = document.querySelectorAll('input[name="delivery-option"]');
+    const deliveryTextarea = document.getElementById('delivery-textarea');
+
+    // Function to handle delivery option change
+    function handleDeliveryOptionChange() {
+      if (this.value === 'delivery') {
+        deliveryTextarea.value = 'Enter your delivery address and contact details';
+
+        var deliveryParagraphs = document.getElementsByClassName("Delivery_delivery");
+        var takeoutParagraphs = document.getElementsByClassName("Delivery_takeout");
+
+        // Highlight the takeout paragraphs and fade the delivery paragraphs
+        for (var i = 0; i < deliveryParagraphs.length; i++) {
+          deliveryParagraphs[i].style.opacity = 1;
+        }
+
+        for (var j = 0; j < takeoutParagraphs.length; j++) {
+          takeoutParagraphs[j].style.opacity = 0.5;
+        }
+
+
+      } else if (this.value === 'takeout') {
+        const takeoutText = `Select a convenient pickup time and visit our store location.
+        We are available from:
+        - Monday to Friday: 9:00am to 8:00pm
+        - Saturday: 10:00am to 1:00pm
+        - We are closed on public holidays`;
+        
+        deliveryTextarea.value = takeoutText;
+
+        // var deliveryParagraph = document.getElementById("Delivery_delivery");
+        // var takeoutParagraph = document.getElementById("Delivery_takeout");
+        // // Highlight the takeout paragraph and fade the delivery paragraph
+        // deliveryParagraph.style.opacity = 0.5;
+        // takeoutParagraph.style.opacity = 1;
+        var deliveryParagraphs = document.getElementsByClassName("Delivery_delivery");
+        var takeoutParagraphs = document.getElementsByClassName("Delivery_takeout");
+
+        // Highlight the takeout paragraphs and fade the delivery paragraphs
+        for (var i = 0; i < deliveryParagraphs.length; i++) {
+          deliveryParagraphs[i].style.opacity = 0.5;
+        }
+
+        for (var j = 0; j < takeoutParagraphs.length; j++) {
+          takeoutParagraphs[j].style.opacity = 1;
+        }
+
+      }
+    }
+
+
+    // Add event listener for each delivery option radio button
+    deliveryOptionRadios.forEach(radio => {
+      radio.addEventListener('change', handleDeliveryOptionChange);
+    });
+
+    // Trigger initial delivery option change
+    handleDeliveryOptionChange.call(deliveryOptionRadios[0]);
+
+  </script> <!-- Link to your JavaScript file -->
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- <link rel="stylesheet" href="orders.css"> Link to your CSS file -->
+  <link href="orders.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+
+  <style>
+p {
+  transition: opacity 0.3s ease;
+}
+
+  </style>
+</head>
+<body>
+  <aside class="side-navigation">
+   <!-- <div class="profile-pic">
+      <img src="my pic.jpg" alt="Profile Picture">
+    </div>  -->
+    <ul class="icons">
+      <li><a href="profile.php"><i class="fas fa-user-circle"></i></i></a></li> <!-- Replace the class with the appropriate profile icon class -->
+      <li><a href="settings.php"><i class="fas fa-cog"></i></a></li> <!-- Replace the class with the appropriate settings icon class -->
+      <li class="beat"><a href="cartpage.php"><i class="fas fa-cart-arrow-down"></i><span class="cart-count">0</span></a></li> <!-- Replace the class with the appropriate settings icon class -->
+      <li><a href="login.html" onclick="session(1)"><i class="fas fa-sign-out-alt"></i></a></li>
+
+    </ul>
+  </aside>
+  
+  
+      <div class="top-navigation">
+        <ul class="categories">
+          <li><a href="vegetables.html"><i class="fas fa-carrot" style="color: #FFA500;"></i> Vegetables</a></li> <!-- Replace the class with the appropriate vegetable icon class -->
+          <li><a href="fruits.html"><i class="fas fa-apple-alt" style="color: #ee3a09;"></i> Fruits</a></li> <!-- Replace the class with the appropriate fruit icon class -->
+          <li><a href="cereals.html"><i class="fas fa-utensils" style="color:#C0C0C0"></i> Cereals</a></li> <!-- Replace the class with the appropriate cereal icon class -->
+          <li><a href="pesticides.html"><i class="fas fa-bug"></i> Pesticides</a></li> <!-- Replace the class with the appropriate pesticide icon class -->
+          <li class="active" style="border: 2px solid #008080;"><a href="fertilizers.html"><i class="fas fa-tractor" style="color: #367C2B;"></i> Fertilizers</a></li> <!-- Replace the class with the appropriate pesticide icon class -->
+        </ul>
+      </div>
+    <div class="content">
+    <div class="product-listing">
+      <h2>Product Listing</h2>
+
+      <!-- Delivery Options -->
+      <div class="delivery_tables">
+        <table>
+          <tr>
+            <td>
+              <p>Delivery Options</p>
+            </td>
+            <td>
+              <label>
+                <input type="radio" name="delivery-option" value="delivery" class="radio" checked>
+                Delivery
+              </label>
+              <label>
+                <input type="radio" name="delivery-option" value="takeout" class="radio">
+                Takeout
+              </label>
+            </td>
+            <td >
+              <textarea id="delivery-textarea" rows="6" readonly>Delivery details</textarea>
+            </td>
+          </tr>
+        </table>
+      </div>
+      
+      <!-- Add your product listing here -->
+      <table>
+        <tr>
+            <td><img src="Fertilizers/Ammonium Sulphate (AS).jpeg"><h3 class="prod_name">Ammonium Sulphate(AS)</h3></td>
+            <td>
+              <p><span id="pro_price">&#8377;58</span> Rs.<sub>Per kg</sub></p>
+              <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+              <p class="Delivery_delivery"></p>
+              <p class="Delivery_takeout"></p>
+            </td>
+            <td>Nitrogen-rich fertilizer, promotes vigorous plant growth and aids in protein synthesis.
+              <br><br>
+              <input type="number" id="pro_61" class="quantity-input" value="1" min="1" placeholder="Quantity">
+              <br><br>
+              <button class="minus-btn" onclick="minus(61)">-</button>
+              <button class="add-to-cart-btn" onclick="cartcount(61)">Add to Cart</button>
+              <button class="plus-btn" onclick="plus(61)">+</button>
+            </td>
+          </tr>
+        <tr>
+          <td><img src="Fertilizers/Calcium Ammonium Nitrate (CAN).jpeg"><h3 class="prod_name">Calcium Ammonium Nitrate(CAn)</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;517</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>High-nitrogen fertilizer with added calcium, promoting vigorous plant growth and improving cell structure and nutrient uptake.
+            <br><br>
+            <input type="number" id="pro_62" class="quantity-input" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(62)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(62)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(62)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Fertilizers/Di-ammonium phosphate (DAP).jpeg"><h3 class="prod_name">Di-ammonium phosphate (DAP)</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;260</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Composed of nitrogen (N) and phosphorus (P) in the form of ammonium and phosphate ions, providing essential nutrients for plant growth and development.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_63" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(63)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(63)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(63)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Fertilizers/Muriate of Potash (MOP).jpeg"><h3 class="prod_name">Muriate of Potash (MOP)</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;60</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Consists of potassium (K) in the form of chloride ions, supplying a crucial nutrient for plant health and promoting strong root development and overall plant growth.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_64" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(64)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(64)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(64)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Fertilizers/Potassium Nitrate (KNO3).jpeg"><h3 class="prod_name">Potassium Nitrate (KNO3)</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;410</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Provides plants with a combination of potassium (K) and nitrogen (N), supporting healthy growth, flowering, and fruiting while also enhancing overall plant vigor and nutrient balance.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_65" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(65)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(65)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(65)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Fertilizers/Single Super Phosphate (SSP).jpeg"><h3 class="prod_name">Single Super Phosphate (SSP)</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;10</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>A high-phosphorus fertilizer that contains a soluble form of phosphorus, promoting root development, flowering, and fruiting in plants, and aiding in overall plant growth and productivity.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_66" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn" onclick="minus(66)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(66)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(66)">+</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="Fertilizers/Urea.jpeg"><h3 class="prod_name">Urea</h3></td>
+          <td>
+            <p><span id="pro_price">&#8377;460</span> Rs.<sub>Per kg</sub></p>
+            <i class='fas fa-shipping-fast' style="font-size: 20px;"></i><b>Delivery:</b>
+            <p class="Delivery_delivery"></p>
+            <p class="Delivery_takeout"></p>
+          </td>
+          <td>Highly concentrated nitrogen fertilizer that provides a readily available source of nitrogen to plants, stimulating their growth, leaf development, and overall green coloration.
+            <br><br>
+            <input type="number" class="quantity-input" id="pro_67" value="1" min="1" placeholder="Quantity">
+            <br><br>
+            <button class="minus-btn"  onclick="minus(67)">-</button>
+            <button class="add-to-cart-btn" onclick="cartcount(67)">Add to Cart</button>
+            <button class="plus-btn" onclick="plus(67)">+</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <script>
+    function session(a) {
+  var formData = new FormData();
+  formData.append('sessionId', a);
+
+  // Send a POST request to the PHP script
+  fetch('logout.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(function(response) {
+      // Check if the response was successful
+      if (response.ok) {
+        return response.text(); // Return the response text
+      } else {
+        throw new Error('Request failed.'); // Throw an error
+      }
+    })
+    .then(function(responseData) {
+      // Do something with the response data
+      console.log(responseData);
+      // Redirect to the login page
+      window.location.href = 'login.html';
+    })
+    .catch(function(error) {
+      // Handle any errors
+      console.error('Error:', error);
+    });
+}
+    //To calculate delivery date
+    var currentday= new Date();
+    var day=currentday.getDay();
+    // Array of weekday names
+    var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var deliveryday = weekdays[(day+2)%7];
+
+    //Funtion to add delivery details
+
+    var deliveryParagraphs = document.getElementsByClassName("Delivery_delivery");
+    var takeoutParagraphs = document.getElementsByClassName("Delivery_takeout");
+
+    // Set the text for delivery paragraphs
+    for (var i = 0; i < deliveryParagraphs.length; i++) {
+      deliveryParagraphs[i].innerText = deliveryday + " 9:00am to 8:00pm";
+    }
+
+    // Set the text for takeout paragraphs
+    for (var j = 0; j < takeoutParagraphs.length; j++) {
+      takeoutParagraphs[j].innerText = "Please collect your product at the warehouse";
+    }
+
+
+    // Minus function
+    function minus(a){
+      var x="pro_"+a;
+      const quantity=document.getElementById(x);
+      var y=parseInt(quantity.value);
+      if(y>1){
+        quantity.value=parseInt(quantity.value)-1;
+      }
+    }
+    // Add function
+    function plus(a){
+      var x="pro_"+a;
+      const quantity=document.getElementById(x);
+      quantity.value=parseInt(quantity.value)+1;
+    }
+    //Cart count increase
+    function cartcount(a){
+      var x="pro_"+a;
+      const quantity=document.getElementById(x);
+      var y=parseInt(quantity.value);
+
+
+
+
+// Create a FormData object and append the data
+var formData = new FormData();
+  formData.append('productId', x);
+  formData.append('quantity', y);
+
+  // Send a POST request to the PHP script
+  fetch('submit.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(function(response) {
+      // Check if the response was successful
+      if (response.ok) {
+        return response.text(); // Return the response text
+      } else {
+        throw new Error('Request failed.'); // Throw an error
+      }
+    })
+    .then(function(responseData) {
+      // Do something with the response data
+      console.log(responseData);
+    })
+    .catch(function(error) {
+      // Handle any errors
+      console.error('Error:', error);
+    });
+
+
+      var cartCountElement = document.querySelector('.cart-count');
+      var currentCount = parseInt(cartCountElement.textContent);
+      var newCount = currentCount + y;
+      cartCountElement.textContent = newCount;
+      quantity.value=1;
+    }
+
+    //textarea delivery
+    const deliveryOptionRadios = document.querySelectorAll('input[name="delivery-option"]');
+    const deliveryTextarea = document.getElementById('delivery-textarea');
+
+    // Function to handle delivery option change
+    function handleDeliveryOptionChange() {
+      if (this.value === 'delivery') {
+        deliveryTextarea.value = 'Enter your delivery address and contact details';
+
+        var deliveryParagraphs = document.getElementsByClassName("Delivery_delivery");
+        var takeoutParagraphs = document.getElementsByClassName("Delivery_takeout");
+
+        // Highlight the takeout paragraphs and fade the delivery paragraphs
+        for (var i = 0; i < deliveryParagraphs.length; i++) {
+          deliveryParagraphs[i].style.opacity = 1;
+        }
+
+        for (var j = 0; j < takeoutParagraphs.length; j++) {
+          takeoutParagraphs[j].style.opacity = 0.5;
+        }
+
+
+      } else if (this.value === 'takeout') {
+        const takeoutText = `Select a convenient pickup time and visit our store location.
+        We are available from:
+        - Monday to Friday: 9:00am to 8:00pm
+        - Saturday: 10:00am to 1:00pm
+        - We are closed on public holidays`;
+        
+        deliveryTextarea.value = takeoutText;
+
+        // var deliveryParagraph = document.getElementById("Delivery_delivery");
+        // var takeoutParagraph = document.getElementById("Delivery_takeout");
+        // // Highlight the takeout paragraph and fade the delivery paragraph
+        // deliveryParagraph.style.opacity = 0.5;
+        // takeoutParagraph.style.opacity = 1;
+        var deliveryParagraphs = document.getElementsByClassName("Delivery_delivery");
+        var takeoutParagraphs = document.getElementsByClassName("Delivery_takeout");
+
+        // Highlight the takeout paragraphs and fade the delivery paragraphs
+        for (var i = 0; i < deliveryParagraphs.length; i++) {
+          deliveryParagraphs[i].style.opacity = 0.5;
+        }
+
+        for (var j = 0; j < takeoutParagraphs.length; j++) {
+          takeoutParagraphs[j].style.opacity = 1;
+        }
+
+      }
+    }
+
+
+    // Add event listener for each delivery option radio button
+    deliveryOptionRadios.forEach(radio => {
+      radio.addEventListener('change', handleDeliveryOptionChange);
+    });
+
+    // Trigger initial delivery option change
+    handleDeliveryOptionChange.call(deliveryOptionRadios[0]);
+
+  </script> <!-- Link to your JavaScript file -->
+</body>
+</html>

@@ -1,0 +1,88 @@
+/* Reset default browser styles */
+body, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  /* Side Navigation Styles */
+  .side-navigation {
+    background-color: #F5F5F5;
+    width: 80px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  .profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .icons {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .icons li {
+    margin-bottom: 10px;
+  }
+  
+  .icons li a {
+    color: #FF9800;
+    text-decoration: none;
+  }
+  
+  /* Content Styles */
+  .content {
+    margin-left: 80px; /* Adjust this value to create space for the side navigation */
+    padding: 20px;
+  }
+  
+  /* Top Navigation Styles */
+  .top-navigation {
+    background-color: #388E3C;
+    padding: 10px;
+  }
+  
+  .categories {
+    display: flex;
+  }
+  
+  .categories li {
+    margin-right: 10px;
+  }
+  
+  .categories li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  /* Product Listing Styles */
+  .product-listing {
+    margin-top: 20px;
+  }
+  
+  .product-listing h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* Additional Styles as per your requirements */
+  

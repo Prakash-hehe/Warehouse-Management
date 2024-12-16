@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <title>My Warehouse</title>
+    <link href="login.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="top-bar">
+
+      <div class="company-name">SAW (Smart Agri Warehouse)</div>
+      <div class="tagline">-Providing Affordable Solutions for Farmers and Customers</div>
+    </div>
+    <div class="warebg">
+      <div class="form-box">
+        <div class="button-box">
+          <div id="btn"></div>
+            <button type="button" class="toggle-btn" onclick="login()" >Log In</button>
+            <button type="button" class="toggle-btn" onclick="register()">Register</button>
+          </div>
+          <div class="social-icon">
+            <!-- <img src="data:image/png;base64,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"> -->
+
+            <a href="http://localhost/SE_HTML/" class="company-icon">            
+              <img src="SAW.jpg" alt="SAW">
+            </a>
+          </div>
+          <form id="login" class="input-group" action="verify.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" class="input-field" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" class="input-field" name="password" required>
+            <button type="submit" class="submit-btn">Log-in</button>
+          </form>
+          <form id="register" class="input-group" action="register.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" class="input-field" name="username" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" class="input-field" name="password" required><br><br>
+
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" class="input-field" name="confirm_password" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" class="input-field" name="Email" required><br><br>
+
+            <label for="numbers">Phone Number:</label>
+            <input type="tel" class="input-field" name="Phone" required><br><br>
+            
+            <label for="address">Address:</label>
+            <input type="text" class="input-field" name="Address" required><br><br>
+
+            <label for="gender">Gender:</label>
+            <select class="input-field" name="Gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select><br><br>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="text" class="input-field" name="DateOfBirth" placeholder="YYYY-MM-DD" required ><br><br>
+
+            <label for="firstname">First Name:</label>
+            <input type="text" class="input-field" name="FirstName" required><br><br>
+
+            <label for="lastname">Last Name:</label>
+            <input type="text" class="input-field" name="LastName" required><br><br>
+
+            <button type="submit" class="submit-btn" name="submit">Register</button>
+            <br><br>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      var x=document.getElementById("login");
+      var y=document.getElementById("register");
+      var z=document.getElementById("btn");
+
+      function register(){
+        x.style.left="-400px";
+        y.style.left="50px";
+        z.style.left="110px";
+      }
+      function login(){
+        x.style.left="50px";
+        y.style.left="450px";
+        z.style.left="0";
+      }
+    </script>
+  </body>
+</html>
